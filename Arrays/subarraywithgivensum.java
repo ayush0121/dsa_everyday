@@ -17,7 +17,7 @@ public class subarraywithgivensum {
         }
         return false;*/
 
-        //efficient approach for the solution with time complexity O(1)
+        //efficient approach for the solution with time complexity O(n) through sliding window technique 
         static boolean Subaru(int arr[],int sum){
             int s=0;
             int cur=0;
