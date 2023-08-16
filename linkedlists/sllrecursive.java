@@ -1,5 +1,15 @@
 public class sllrecursive {
-    static class Node{
+    /*static class Node{
+        int data;
+        Node next;
+        Node(int key){
+            data=key;
+            next=null;
+        }
+    }*/
+
+
+    static class Node {
         int data;
         Node next;
         Node(int key){
