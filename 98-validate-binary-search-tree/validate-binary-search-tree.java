@@ -14,17 +14,31 @@
  * }
  */
 class Solution {
-    private long minVal = Long.MIN_VALUE;
+    List<Integer> list=new ArrayList<>();
+
+    
     public boolean isValidBST(TreeNode root) {
-        if (root == null) return true; 
-        if (!isValidBST(root.left)) return false;
+        inorder(root);
+        return issorted();
+
+
         
-        if (minVal >= root.val) return false; 
-
-        minVal = root.val;
-
-        if (!isValidBST(root.right)) return false;
-
-        return true;
     } 
+    public void inorder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        inorder(root.left);
+        list.add(root.val);
+        inorder(root.right);
+    }
+    public boolean issorted(){
+        for(int i=0;i<list.size()-1;i++){
+            if(list.get(i)>=list.get(i+1)){
+                return false; 
+            }
+        }
+        return true;
+
+    }
 }
