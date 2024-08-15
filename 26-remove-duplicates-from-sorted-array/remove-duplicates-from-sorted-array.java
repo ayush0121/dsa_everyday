@@ -1,13 +1,20 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int res=1;
-        for(int i=1;i<nums.length;i++){
-            if(nums[i]!=nums[res-1]){
-                nums[res]=nums[i];
-                res++;
-            }
+
+        //Insert all array element in the Set. 
+        //Set does not allow duplicates and sets like LinkedHashSet maintains the order of insertion so it will remove duplicates and elements will be printed in the same order in which it is inserted
+
+        LinkedHashSet<Integer> set = new LinkedHashSet<>();
+
+        for(int i = 0; i < nums.length; i++){
+            set.add(nums[i]);
         }
-        return res;
-        
+        //copy unique element back to array
+        int i = 0;
+
+        for(int ele:set){
+            nums[i++] = ele;
+        }
+        return set.size();
     }
 }
