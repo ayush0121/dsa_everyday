@@ -4,6 +4,7 @@ class Solution {
         int mid=0;
         int high=nums.length-1;
         while(mid<=high){
+           
             switch(nums[mid]){
                 case 0:
                 int temp=nums[low];
@@ -21,15 +22,9 @@ class Solution {
                 temp=nums[mid];
                 nums[mid]=nums[high];
                 nums[high]=temp;
-                
                 high--;
                 break;
-                
-
-
-
             }
-
         }
         
     }
