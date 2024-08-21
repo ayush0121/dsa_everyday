@@ -16,7 +16,7 @@ public class Solution {
         int ac=0;
         int bc=0;
         while(a!=null){
-            ac=ac+1;
+            ac++;
             a=a.next;
         }
         while(b!=null){
@@ -26,15 +26,16 @@ public class Solution {
         while(ac>bc){
             ac--;
             headA=headA.next;
+
         }
         while(ac<bc){
             bc--;
             headB=headB.next;
-        } 
+        }
         while(headA!=headB){
             headA=headA.next;
             headB=headB.next;
-        }       
+        }
         return headA;
     }
 }
