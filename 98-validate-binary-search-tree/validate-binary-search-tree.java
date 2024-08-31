@@ -14,31 +14,25 @@
  * }
  */
 class Solution {
-    List<Integer> list=new ArrayList<>();
-
-    
+    List<Integer> arr=new ArrayList<>();
     public boolean isValidBST(TreeNode root) {
-        inorder(root);
-        return issorted();
-
-
-        
-    } 
-    public void inorder(TreeNode root){
-        if(root==null){
-            return;
-        }
-        inorder(root.left);
-        list.add(root.val);
-        inorder(root.right);
-    }
-    public boolean issorted(){
-        for(int i=0;i<list.size()-1;i++){
-            if(list.get(i)>=list.get(i+1)){
-                return false; 
+        List<Integer> ans = new ArrayList<>();
+        inorder(root, ans);
+        for (int i = 1; i < ans.size(); i++) {
+            if (ans.get(i) <= ans.get(i - 1)) { // Correct comparison logic
+                return false;
             }
         }
         return true;
 
+        
+    }
+    public void inorder(TreeNode root,List<Integer> arr){
+        if (root == null) {
+            return;
+        }
+        inorder(root.left, arr);
+        arr.add(root.val);
+        inorder(root.right, arr);
     }
 }
