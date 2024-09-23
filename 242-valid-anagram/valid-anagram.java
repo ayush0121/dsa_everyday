@@ -2,17 +2,16 @@ class Solution {
     public boolean isAnagram(String s, String t) {
         
         HashMap<Character, Integer> mp1=new HashMap<>();
+        HashMap<Character, Integer> mp2=new HashMap<>();
         
         for(char ch:s.toCharArray()){
             mp1.put(ch,mp1.getOrDefault(ch,0)+1);
         }
         for(char ch:t.toCharArray()){
-            mp1.put(ch,mp1.getOrDefault(ch,0)-1);
+            mp2.put(ch,mp2.getOrDefault(ch,0)+1);
         }
-        for(int val: mp1.values()){
-            if(val!=0){
-                return false;
-            }
+        if(!mp1.equals(mp2)){
+            return false;
         }
         return true;
 
